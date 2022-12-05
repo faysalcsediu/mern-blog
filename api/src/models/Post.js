@@ -29,3 +29,5 @@ const Post = model(
         { timestamps: true }
     )
 );
+
+export default Post;
