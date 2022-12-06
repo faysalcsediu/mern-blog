@@ -20,7 +20,7 @@ const User = model(
             },
             avatar: {
                 type: String,
-                default: '',
+                required: false,
             },
         },
         { timestamps: true }

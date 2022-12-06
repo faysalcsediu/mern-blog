@@ -32,7 +32,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     if (req.body.userId === req.params.id) {
         try {
-            const user = await User.findById(req.body.id);
+            const user = await User.findById(req.body.userId);
             try {
                 await Post.deleteMany({ userName: user.userName });
                 await User.findByIdAndDelete(req.params.id);
@@ -45,6 +45,17 @@ router.delete('/:id', async (req, res) => {
         }
     } else {
         res.status(401).json('You can only update your info');
+    }
+});
+
+// GET USER
+router.get('/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.body.userId);
+        const { password, ...others } = user._doc;
+        res.status(200).json(others);
+    } catch (error) {
+        res.status(500).json(error);
     }
 });
 
