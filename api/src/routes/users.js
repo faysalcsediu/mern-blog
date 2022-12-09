@@ -4,7 +4,7 @@ import { User, Post } from '../models/index.js';
 
 const router = Router();
 
-// UPDATE
+// UPDATE USER
 router.put('/:id', async (req, res) => {
     if (req.body.userId === req.params.id) {
         if (req.body.password) {
@@ -28,7 +28,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// DELETE
+// DELETE USER
 router.delete('/:id', async (req, res) => {
     if (req.body.userId === req.params.id) {
         try {
