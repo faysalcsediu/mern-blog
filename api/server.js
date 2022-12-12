@@ -21,7 +21,7 @@ mongoose
 
 app.use('/api/auth', authRoute);
 app.use('/api/user', userRoute);
-app.use('/api/post/', postsRoute);
+app.use('/api/posts/', postsRoute);
 app.use('/api/category/', categoryRoute);
 
 app.listen(PORT, () => {
